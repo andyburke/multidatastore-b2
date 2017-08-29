@@ -1,0 +1,23 @@
+{
+  "name": "multidatastore-b2",
+  "version": "1.0.0",
+  "description": "multi data store b2 driver",
+  "contributors": [
+    "Andy Burke <andy.burke@mailbox.earth> (https://github.com/andyburke)"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/**/*.js | tap-spec"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "backblaze-b2": "^1.0.2",
+    "extend": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "tap-spec": "^4.1.1",
+    "tape-async": "^2.3.0"
+  }
+}
