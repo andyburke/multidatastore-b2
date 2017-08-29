@@ -69,20 +69,21 @@ const B2_Driver = {
 
 module.exports = {
     create: function( _options ) {
+        const instance = Object.assign( {}, B2_Driver );
+
         const options = extend( true, {
             readable: true,
             id_field: 'id',
             b2: {},
             bucket: null,
             get_object_path: object => {
-                return `/${ object[ this.options.id_field ] }.json`;
+                return `/${ object[ instance.options.id_field ] }.json`;
             },
             get_id_path: id => {
                 return `/${ id }.json`;
             }
         }, _options );
 
-        const instance = Object.assign( {}, B2_Driver );
         instance.options = options;
 
         return instance;
