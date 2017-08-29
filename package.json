@@ -1,6 +1,6 @@
 {
   "name": "multidatastore-b2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "multi data store b2 driver",
   "contributors": [
     "Andy Burke <andy.burke@mailbox.earth> (https://github.com/andyburke)"

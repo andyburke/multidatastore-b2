@@ -12,6 +12,23 @@ const B2_Driver = {
         this.b2 = new B2( this.options.b2 );
 
         await this.b2.authorize();
+
+        let bucket_exists = false;
+
+        try {
+            const list_buckets_response = await this.b2.listBuckets();
+            const list_of_buckets = list_buckets_response && list_buckets_response.data || [];
+            const existing_bucket = list_of_buckets.find( bucket => bucket.bucketName === this.options.bucket );
+            bucket_exists = !!existing_bucket;
+        }
+        catch( ex ) {
+            bucket_exists = false;
+        }
+
+        if ( bucket_exists ) {
+            return;
+        }
+
         await this.b2.createBucket( this.options.bucket, 'allPrivate' );
     },
 
