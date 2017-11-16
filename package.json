@@ -1,11 +1,12 @@
 {
   "name": "multidatastore-b2",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "multi data store b2 driver",
   "contributors": [
     "Andy Burke <andy.burke@mailbox.earth> (https://github.com/andyburke)"
   ],
   "main": "index.js",
+  "files": [],
   "scripts": {
     "test": "tape test/**/*.js | tap-spec"
   },
