@@ -42,15 +42,7 @@ const B2_Driver = {
             throw new Error( 'invalid object path' );
         }
 
-        const processed = await this.options.processors.map( processor => processor.serialize ).reduce( async( _object, serialize ) => {
-            if ( !serialize ) {
-                return _object;
-            }
-
-            return await serialize( _object );
-        }, object );
-
-        const data = JSON.stringify( processed, null, 4 );
+        const data = JSON.stringify( object, null, 4 );
 
         const upload_url_response = await this.b2.getUploadUrl( this.options.bucket );
 
@@ -74,15 +66,7 @@ const B2_Driver = {
             fileName: path
         } );
 
-        const processed = JSON.parse( response && response.data );
-
-        const object = await this.options.processors.map( processor => processor.deserialize ).reduceRight( async( _object, deserialize ) => {
-            if ( !deserialize ) {
-                return _object;
-            }
-
-            return await deserialize( _object );
-        }, processed );
+        const object = JSON.parse( response && response.data );
 
         return object;
     },
